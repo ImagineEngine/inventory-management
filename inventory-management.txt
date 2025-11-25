@@ -1,0 +1,54 @@
+Inventory Management System in C:
+- CLI Based
+- Enter commands to access and modify the inventory
+- Save and read inventory from file
+
+Commands:
+- add: adds a Product with ID, name and price into the inventory.
+- delete: removes a Product matching ID inputted by user.
+- save: saves the inventory into persistent storage.
+- exit: terminates the Inventory Management System safely and makes sure changes are saved.
+- list: shows an overview of the products in the inventory.
+
+Implementation of functionalities:
+The inventory is managed by a linked list struct which itself manages the head tail and length of the linked list in the LinkedList struct.
+Each inventory item is stored as a node in a linked list which makes insertion and deletion effiecient without needing to realloc items in an array.
+For persistence, we store each of the Products ie. nodes in a file system with a format in which each product occupies a single line, and its attributes are separated by a pipe '|' character.
+Before we exit using the command, the program prompts the user to either save changes or exit without saving.
+This prevents accidental deletion or insertion into the inventory by isolating it from the file system.
+
+Members and contribution:
+- Anay Datta [BE2025003]
+- Pramit BC [IE2025025]
+- Kartikeya Balonda [IE2025016]
+
+Anay Datta:
+- Saving and retrieval of inventory from file system and CLI
+
+Pramit BC:
+- Implementation of Inventory functions
+
+Kartikeya Balonda:
+- Implementation of Linked List
+
+Explanation of functions:
+
+ProductNode functions
+- new_product(int prod_id, char name[50], int price) returns [ProductNode pointer]: creates a product node, assigns the attributes and mallocs it, returning the pointer to the ProductNode.
+
+ProductLL functions
+- append(ProductLL * productList, ProductNode * product): appends a ProductNode to the end of the product linked list by assigning the 'next' attribute, of the tail of the linked list, the pointer to the ProductNode arg passed to the function.
+- delete(ProductLL * productList, int index): deletes a ProductNode from the product linked list corresponding to a certain index.
+- search(ProductLL * productList, int prod_id) returns [int]: searches for a product by ID in the product linked list and returns the index.
+
+Inventory functions
+- init_inventory() returns [Inventory pointer]: initializes the linked list and inventory attributes and mallocs it, returning the pointer to the Inventory.
+- add_product(Inventory * inventory, ProductNode * product) returns [int]: safe adds product into the inventory, making sure there are no products with the same product ID. Returns 1 if successful, 0 otherwise.
+- delete_product(Inventory * inventory, int prod_id) returns [int]: safe deletes a product from the inventory by the ID (if it exists). Returns 1 if successful, 0 otherwise.
+- load_inventory() returns [Inventory pointer]: loads the data from file system onto memory by creating and syncing an inventory with the file data. Works by parsing the format and extracting ID, name, and price from the file.
+- save_inventory(Inventory * inventory): takes the current inventory in memory and saves it onto the file system. Formats the attributes of eaech product node and writes it onto the file.
+- list_inventory(Inventory * inventory): prints out all the products in the inventory in a tabular fashion.
+
+Main function
+- main: implements the logic for Command Line Interface. Stays in a loop accepting commands from the user and executing the respective commands providing responses for each job.
+
