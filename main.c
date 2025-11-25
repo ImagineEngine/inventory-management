@@ -5,8 +5,6 @@
 char filename[40] = "products.txt";
 FILE *fp;
 
-//try to add feature to export to xlsx
-
 struct ProductNode {
     int prod_id;
     char name[50];
@@ -85,9 +83,6 @@ int search(ProductLL * productList, int prod_id) {
     }
     return -1;
 }
-
-// add insert function
-
 //
 
 struct Inventory {
@@ -149,7 +144,6 @@ Inventory * load_inventory() {
             fscanf(fp, "%c", &c);
         }
         price[nprice] = '\0';
-        //printf("%d %s %d\n", atoi(id), name, atoi(price));
         append(inventory -> productList, new_product(atoi(id), name, atoi(price)));
         e = fscanf(fp, "%c", &c);
     }
@@ -171,7 +165,6 @@ void save_inventory(Inventory * inventory) {
     }
     ProductNode * p = inventory -> productList -> head;
     for (int i = 0; i < length; i++) {
-        //printf("%d|%s|%d\n", p -> prod_id, p -> name, p -> price);
         fprintf(fp, "%d|%s|%d\n", p -> prod_id, p -> name, p -> price);
         p = p -> next;
     }
