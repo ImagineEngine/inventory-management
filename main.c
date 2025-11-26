@@ -182,7 +182,7 @@ void list_inventory(Inventory * inventory) {
         return;
     }
     ProductNode * p = inventory -> productList -> head;
-    printf("ID\tname\tprice\n", p -> prod_id, p -> name, p -> price);
+    printf("ID\tname\tprice\n");
     for (int i = 0; i < length; i++) {
         printf("%d\t%s\t%d\n", p -> prod_id, p -> name, p -> price);
         p = p -> next;
