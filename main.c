@@ -72,7 +72,7 @@ void delete(ProductLL * productList, int index){
 int search(ProductLL * productList, int prod_id) {
     int length = productList -> length;
     if (length == 0) {
-        return 0;
+        return -1;
     }
     ProductNode * p = productList -> head;
     for (int i = 0; i < length; i++) {
