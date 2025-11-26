@@ -1,10 +1,5 @@
-1|Kitkat (38.5g)|30
 2|Snickers (40g)|40
+3|Dark Fantasy (Single, 11.5g)|6
 4|Nissin Mazedaar Masala (45g)|30
 5|Nissin Veggi Manchow (45g)|30
-6|Mad Angles Achaari Masti (117g)|35
-9|Plastic Hook|80
-10|Oreo|90
-13|Kurkure|30
-11|Hey|80
-15|Hola|80
+6|Kurkure Masala Munch (94g)|25
